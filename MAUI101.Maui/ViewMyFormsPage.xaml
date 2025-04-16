@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI101.Maui.ViewMyFormsPage"
+			 xmlns:viewmodel="clr-namespace:MAUI101.Maui.ViewModels"
+			 xmlns:local="clr-namespace:MAUI101.Maui.Data_Models"
+             x:DataType="viewmodel:ViewFormsViewModel"
+             Title="View Adoption Forms"
+			 BackgroundColor="WhiteSmoke">
+	<ScrollView>
+		<VerticalStackLayout Margin="10,5">
+			<ContentView Margin="5">
+				<Frame>
+					<Label FontSize="12" Text="Tap on a card below to view form details."/>
+				</Frame>
+			</ContentView>
+
+			<CollectionView ItemsSource="{Binding Forms}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="local:AdoptionForm">
+						<ContentView Padding="5">
+							<Frame>
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer 
+									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ViewFormsViewModel}}, Path=CardSelectedCommand}"
+									CommandParameter="{Binding .}"/>
+								</Frame.GestureRecognizers>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width=".40*"/>
+										<ColumnDefinition Width=".60*"/>
+									</Grid.ColumnDefinitions>
+									<Image Source="{Binding ImageId, StringFormat='https://cdn2.thecatapi.com/images/{0}.jpg'}"
+								   WidthRequest="100"
+								   HorizontalOptions="Start"/>
+									<VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
+										<Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding PetName}"/>
+										<Label HorizontalTextAlignment="Center" FontSize="10" Text="{Binding Email}"/>
+										<Label HorizontalTextAlignment="Center" FontSize="10" Text="{Binding FirstName}"/>
+										<Label HorizontalTextAlignment="Center" FontSize="10" Text="{Binding LastName}"/>
+										<Label HorizontalTextAlignment="Center" FontSize="10" Text="{Binding PhoneNumber}"/>
+									</VerticalStackLayout>
+								</Grid>
+							</Frame>
+						</ContentView>
+
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

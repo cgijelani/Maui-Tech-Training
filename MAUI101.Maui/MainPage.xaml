@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI101.Maui.MainPage"
+			 Title="Home"
+			 BackgroundColor="WhiteSmoke">
+
+	<ScrollView>
+		<ContentView Padding="15">
+			<Frame>
+				<VerticalStackLayout
+					Padding="30,0"
+					Spacing="25">
+					<Label
+						Text="Mission statement: The WPPAA exists to assist companion animals in finding housing and promote kindness and a clear opportunity in life."
+						Style="{StaticResource SubHeadline}"
+						SemanticProperties.HeadingLevel="Level1" />
+					<Button
+						Text="View Adoptions" 
+						Clicked="OnViewAdoptionsClick"
+						HorizontalOptions="Fill" />
+
+					<Button
+						Text="View Submitted Forms" 
+						Clicked="OnViewFormsClick"
+						HorizontalOptions="Fill" />
+
+				</VerticalStackLayout>
+			</Frame>
+		</ContentView>
+	</ScrollView>
+
+</ContentPage>

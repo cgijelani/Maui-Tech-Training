@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI101.Maui.ViewCompletedForm"
+             Title="Submitted Form"
+			 xmlns:viewmodel="clr-namespace:MAUI101.Maui.ViewModels"
+             x:DataType="viewmodel:ViewCompletedFormViewModel"
+			 BackgroundColor="WhiteSmoke">
+
+	<ScrollView>
+		<ContentView Padding="15">
+			<Frame>
+				<VerticalStackLayout>
+					<Image Source="{Binding FormDetails.ImageId, StringFormat='https://cdn2.thecatapi.com/images/{0}.jpg'}"
+					   WidthRequest="150"
+					   HorizontalOptions="Center"
+					   Margin="0,0,0,30"/>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="First name: "/>
+						<Label Text="{Binding FormDetails.FirstName}"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Middle name: "/>
+						<Label Text="{Binding FormDetails.MiddleName}"
+					   VerticalOptions="Center" 
+					   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Last name: "/>
+						<Label Text="{Binding FormDetails.LastName}"
+						   VerticalOptions="Center" 
+						   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Date of Birth: "/>
+						<Label Text="{Binding FormDetails.DateOfBirth}"
+					   VerticalOptions="Center" 
+					   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Street Address: "/>
+						<Label Text="{Binding FormDetails.Street}"
+					   VerticalOptions="Center" 
+					   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="City: "/>
+						<Label Text="{Binding FormDetails.City}"
+				   VerticalOptions="Center" 
+				   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="State: "/>
+						<Label Text="{Binding FormDetails.State}"
+				   VerticalOptions="Center" 
+				   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Phone Number: "/>
+						<Label Text="{Binding FormDetails.PhoneNumber}"
+				   VerticalOptions="Center" 
+				   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Email: "/>
+						<Label Text="{Binding FormDetails.Email}"
+				   VerticalOptions="Center" 
+				   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+					<HorizontalStackLayout>
+						<Label Padding="0,0,5,5" Text="Pet Name: "/>
+						<Label Text="{Binding FormDetails.PetName}"
+				   VerticalOptions="Center" 
+				   HorizontalOptions="Center" />
+					</HorizontalStackLayout>
+
+				</VerticalStackLayout>
+			</Frame>
+		</ContentView>
+	</ScrollView>
+</ContentPage>

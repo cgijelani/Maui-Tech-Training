@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MAUI101.Maui.AdoptionDetails"
+             Title="AdoptionDetails"
+			 Shell.NavBarIsVisible="False"
+			 xmlns:viewmodel="clr-namespace:MAUI101.Maui.ViewModels"
+             x:DataType="viewmodel:AdoptionDetailViewModel"
+			 BackgroundColor="WhiteSmoke">
+
+	<ScrollView x:Name="scrollView">
+		<ContentView Padding="15">
+			<Frame>
+				<VerticalStackLayout Padding="10" Spacing="10">
+					<Label 
+						Text="Pet Adoption Form"
+						VerticalOptions="Center" 
+						HorizontalOptions="Center" />
+					<Label 
+						Text="Please fill out the below fields to apply for the adoption of this pet."
+						FontSize="12"
+						VerticalOptions="Center" 
+						HorizontalOptions="Center" />
+
+					<Image Source="{Binding Detail.PetImageId, StringFormat='https://cdn2.thecatapi.com/images/{0}.jpg'}"
+						   WidthRequest="150"
+						   VerticalOptions="Center" 
+						   HorizontalOptions="Center"/>
+
+					<Label Text="{Binding Error}" TextColor="Red"/>
+
+					<Label Text="First Name*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding FirstName}"/>
+
+					<Label Text="Middle Name" Padding="5,0,0,0"/>
+					<Entry Text="{Binding MiddleName}"/>
+
+					<Label Text="Last Name*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding LastName}"/>
+
+					<Label Text="State*" Padding="5,0,0,0"/>
+					<Picker ItemsSource="{Binding States}"
+				SelectedItem="{Binding State}"/>
+
+					<Label Text="Date of birth*" Padding="5,0,0,0"/>
+					<DatePicker MinimumDate="01/01/1920"
+					MaximumDate="{Binding MaxDate}"
+					Date="{Binding DateOfBirth}" />
+
+					<Label Text="Street*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding Street}"/>
+
+					<Label Text="City*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding City}"/>
+
+					<Label Text="Phone Number*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding PhoneNumber}"/>
+
+					<Label Text="Email*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding Email}"/>
+
+					<Label Text="Pet name*" Padding="5,0,0,0"/>
+					<Entry Text="{Binding PetName}"/>
+
+					<Button Text="Submit" Command="{Binding SubmitCommand}"/>
+				</VerticalStackLayout>
+			</Frame>
+		</ContentView>
+	</ScrollView>
+</ContentPage>

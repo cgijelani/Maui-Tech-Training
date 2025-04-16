@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI101.Maui.LoginPage"
+             Title="Login"
+			 xmlns:viewmodel="clr-namespace:MAUI101.Maui.ViewModels"
+			 x:DataType="viewmodel:LoginViewModel"
+			 Shell.NavBarIsVisible="False"
+			 Shell.FlyoutBehavior="Disabled"
+			 BackgroundColor="WhiteSmoke">
+	<ContentView Margin="15">
+		<Frame>
+			<Grid RowDefinitions="45, Auto, 45, Auto"
+				  ColumnDefinitions=".50*, .50*"
+				  Padding="10"
+				  RowSpacing="10"
+				  ColumnSpacing="10">
+
+				<Label 
+					Text="User Login"
+					VerticalOptions="Center" 
+					HorizontalOptions="Center"
+					Grid.ColumnSpan="2"
+					Grid.Row="0"/>
+				
+				<Entry Placeholder="Username"
+					   Text="{Binding Username}"
+					   Grid.ColumnSpan="2"
+					   Grid.Row="1"/>
+
+				<Entry Placeholder="Password"
+					   Text="{Binding Password}"
+					   IsPassword="True"
+					   Grid.ColumnSpan="2"
+					   Grid.Row="2"/>
+
+				<Button Text="Login"
+						Command="{Binding LoginCommand}"
+						Grid.Column="0"
+						Grid.Row="3"
+						Grid.RowSpan="1"/>
+
+				<Button Text="Register"
+						Command="{Binding RegisterCommand}"
+						Grid.Column="1"
+						Grid.Row="3"
+						Grid.RowSpan="1"/>
+
+			</Grid>
+		</Frame>
+	</ContentView>
+</ContentPage>
